@@ -25,7 +25,7 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/heads/master.zip -O /tmp/no
     rm -rf /tmp/novnc.zip /tmp/noVNC-master
 
 
-ENV ISO_URL="https://archive.org/download/windows-10-22h2-english-x64/Win10_22H2_English_x64.iso"
+ENV ISO_URL="https://archive.org/download/tiny-10_202301/Tiny10%20x64.iso"
 
 
 RUN echo '#!/bin/bash\n\
@@ -36,13 +36,13 @@ if [ -e /dev/kvm ]; then\n\
   echo "✅ KVM acceleration available"\n\
   KVM_ARG="-enable-kvm"\n\
   CPU_ARG="host"\n\
-  MEMORY="16G"\n\
+  MEMORY="8G"\n\
   SMP_CORES=4\n\
 else\n\
   echo "⚠️  KVM not available - using slower emulation mode"\n\
   KVM_ARG=""\n\
   CPU_ARG="qemu64"\n\
-  MEMORY="8G"\n\
+  MEMORY="2G"\n\
   SMP_CORES=1\n\
 fi\n\
 \n\
